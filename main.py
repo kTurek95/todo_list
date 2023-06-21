@@ -1,24 +1,40 @@
-user_task = []
+user_tasks = []
+completed_user_tasks = []
 
 while True:
-    print('-----Aplikacja ToDoList-----')
-    print('1. Dodaj zadanie')
-    print('2. Wyświetl zadania')
-    print('3. Usuń zadanie z listy')
-    print('4. Oznacz zadanie jako wykonane')
-    print('5. Zapisz zadania do pliku')
-    print('6. Wczytaj zadania z pliku')
+    print('-----ToDoList Application-----')
+    print('1. Add task')
+    print('2. Display tasks')
+    print('3. Remove task from the list')
+    print('4. Mark task as completed')
+    print('5. Save tasks to a file')
+    print('6. Load tasks from a file')
 
-    user_choice0 = input('Wybierz co chcesz zrobić: ')
+    user_choice = input('Choose what you want to do: ')
 
-    if user_choice0 == '1':
-        user_choice1 = input('Dodaj zadanie: ')
-        user_task.append(user_choice1)
-    elif user_choice0 == '2':
-        print(user_task)
-    elif user_choice0 == '3':
-         user_choice2 = input('Podaj, które zadanie chcesz usunąć: ')
-         user_task.remove(user_choice2)
+    if user_choice == '1':
+        user_task = input('Add a task: ')
+        user_tasks.append(user_task)
+    elif user_choice == '2':
+        print(f'Your tasks are: {user_tasks}')
+    elif user_choice == '3':
+        user_task_to_delete = input('Enter the task you want to delete: ')
+        user_tasks.remove(user_task_to_delete)
+    elif user_choice == '4':
+        completed_tasks = input('Enter the completed task: ')
+        user_tasks.remove(completed_tasks)
+        completed_user_tasks.append(completed_tasks)
+        print('Task has been moved to completed tasks')
+    elif user_choice == '5':
+        user_task_to_file = input('Enter the task you want to add to the file: ')
+        with open('tasks.txt', 'w') as file:
+            file.write(user_task_to_file)
+        print('Task has been saved to the file')
+    elif user_choice == '6':
+        with open('tasks.txt', 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                print(line.strip())
     else:
-        print('Nie ma takiej opcji')
+        print('Invalid option')
         break
