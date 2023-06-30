@@ -4,16 +4,18 @@ completed_user_tasks = []
 
 def add_task():
     user_task = input('Add a task: ')
-    user_tasks.append(user_task)
-
-
-def display_tasks():
-    if len(user_tasks) > 0:
-        print('Your task are:')
-        for task in user_tasks:
-            print(task)
+    if len(user_task) > 0:
+        user_tasks.append(user_task)
     else:
-        print("You don't have any tasks on the list.")
+        print("You haven't added any task")
+
+
+def display_tasks(tasks: list):
+    if len(tasks) > 0:
+        tasks_string = 'Your tasks are:\n' + '\n'.join(tasks)
+        return tasks_string
+    else:
+        return "You don't have any tasks on the list."
 
 
 def delete_task():
@@ -58,7 +60,7 @@ def main():
         if user_choice == '1':
             add_task()
         elif user_choice == '2':
-            display_tasks()
+            print(display_tasks(user_tasks))
         elif user_choice == '3':
             delete_task()
         elif user_choice == '4':
