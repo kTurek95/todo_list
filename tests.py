@@ -42,7 +42,18 @@ class TestDisplayTask(unittest.TestCase):
 
 
 class TestDeleteTask(unittest.TestCase):
-    pass
+    def test_delete_task(self):
+        user_tasks = ['take out the trash', 'wash the car']
+        task_to_delete = 'wash the car'
+        fn.delete_task(task_to_delete, user_tasks)
+        self.assertNotIn(task_to_delete, user_tasks)
+
+    def test_delete_task_empty_list(self):
+        user_tasks = []
+        task_to_delete = 'wash the car'
+        output = fn.delete_task(task_to_delete, user_tasks)
+        expected_output = 'Task does not exist'
+        self.assertEqual(expected_output, output)
 
 
 class TestMarkTaskCompleted(unittest.TestCase):
