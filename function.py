@@ -18,9 +18,11 @@ def display_tasks(tasks: list):
         return "You don't have any tasks on the list."
 
 
-def delete_task():
-    user_task_to_delete = input('Enter the task you want to delete: ')
-    user_tasks.remove(user_task_to_delete)
+def delete_task(task: str, tasks_list: list):
+    if task in tasks_list:
+        tasks_list.remove(task)
+    else:
+        return "Task does not exist"
 
 
 def mark_task_completed():
@@ -62,7 +64,8 @@ def main():
         elif user_choice == '2':
             print(display_tasks(user_tasks))
         elif user_choice == '3':
-            delete_task()
+            user_task_to_delete = input('Enter the task you want to delete: ')
+            delete_task(user_task_to_delete, user_tasks)
         elif user_choice == '4':
             mark_task_completed()
         elif user_choice == '5':
