@@ -54,15 +54,15 @@ def mark_completed_task():
         print(e)
 
 
-def save_task_to_file():
-    print(f'Your tasks: {user_tasks}')
+def save_task_to_file(tasks: list):
+    print(f'Your tasks: {tasks}')
     user_task_to_file = input('Choose the task you want to add to the file: ')
     try:
-        if user_task_to_file in user_tasks:
+        if user_task_to_file in tasks:
             with open('tasks.txt', 'a', encoding='utf8') as file:
                 file.write(f'{user_task_to_file}\n')
             print('Task has been saved to the file')
-            user_tasks.remove(user_task_to_file)
+            tasks.remove(user_task_to_file)
         else:
             raise InvalidInput("You don't have such a task on your list")
     except InvalidInput as e:
@@ -70,7 +70,10 @@ def save_task_to_file():
 
 
 def load_tasks_from_file():
-    with open('tasks.txt', 'r', encoding='utf8') as file:
-        lines = file.readlines()
-        for line in lines:
-            print(line.strip())
+    try:
+        with open('tasks.txt', 'r', encoding='utf8') as file:
+            print("Your tasks from file:")
+            for line in file:
+                print(line.strip())
+    except FileNotFoundError:
+        print("You don't have any tasks in your file")
