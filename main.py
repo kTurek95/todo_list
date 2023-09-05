@@ -25,7 +25,7 @@ def main():
         elif user_choice == '4':
             mark_completed_task()
         elif user_choice == '5':
-            save_task_to_file()
+            save_task_to_file(user_tasks)
         elif user_choice == '6':
             load_tasks_from_file()
         else:
