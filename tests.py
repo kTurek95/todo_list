@@ -48,7 +48,8 @@ class TestAddTask(unittest.TestCase):
     @patch('builtins.input', return_value='Test Task')
     @patch('builtins.open', new_callable=mock_open)
     def test_save_task_to_file(self, mock_file_open, mock_input):
-        fn.save_task_to_file()
+        tasks = ['Test Task']
+        fn.save_task_to_file(tasks)
         mock_file_open.assert_called_once_with('tasks.txt', 'a', encoding='utf8')
         mock_file_open().write.assert_called_once_with('Test Task\n')
 
