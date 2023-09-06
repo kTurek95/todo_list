@@ -1,7 +1,7 @@
 # To-Do List Application README
 
 ## Project Description
-This To-Do List application allows users to manage their tasks. You can add, display, remove, mark as completed, save, and load tasks from a file. The project consists of three modules: the main module, function module, and exceptions module.
+This To-Do List application allows users to manage their tasks. You can add, display, remove, mark as completed, save, and load tasks from a file. The project consists of three modules: the main module, function module, and tests module.
 
 ## Directory Structure
 The project consists of three modules:
