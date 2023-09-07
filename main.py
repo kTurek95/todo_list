@@ -1,8 +1,31 @@
-from function import add_task, display_tasks, delete_task, user_tasks, mark_completed_task, save_task_to_file, \
+"""
+Main module for the ToDoList Application.
+
+This module provides a simple command-line interface for managing tasks.
+It allows users to add, display, remove, mark as completed, save, and load tasks from a file.
+
+Usage:
+    Run this module to start the ToDoList Application.
+
+Functions:
+    - main(): The main function of the application that handles user interaction.
+"""
+from function import add_task, display_tasks,\
+    delete_task, user_tasks, mark_completed_task, save_task_to_file, \
     load_tasks_from_file
 
 
 def main():
+    """
+    The main function of the ToDoList Application.
+
+    This function displays a menu of options to the user and performs
+    actions based on the user's choice. It provides options to add, display,
+    remove, mark tasks as completed, save tasks to a file, and load tasks from a file.
+
+    Returns:
+        None
+    """
     while True:
         print('-----ToDoList Application-----')
         print('1. Add task')
