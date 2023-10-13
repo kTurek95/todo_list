@@ -10,9 +10,7 @@ Usage:
 Functions:
     - main(): The main function of the application that handles user interaction.
 """
-from function import add_task, display_tasks,\
-    delete_task, user_tasks, mark_completed_task, save_task_to_file, \
-    load_tasks_from_file
+from task_manager import TaskManager
 
 
 def main():
@@ -26,6 +24,7 @@ def main():
     Returns:
         None
     """
+    task_manager = TaskManager()
     while True:
         print('-----ToDoList Application-----')
         print('1. Add task')
@@ -39,18 +38,17 @@ def main():
         user_choice = input('Choose what you want to do: ')
 
         if user_choice == '1':
-            add_task(user_tasks)
+            task_manager.add_task()
         elif user_choice == '2':
-            print(display_tasks(user_tasks))
+            task_manager.display_tasks()
         elif user_choice == '3':
-            user_task_to_delete = input('Enter the task you want to delete: ')
-            delete_task(user_task_to_delete, user_tasks)
+            task_manager.delete_task()
         elif user_choice == '4':
-            mark_completed_task()
+            task_manager.mark_completed_task()
         elif user_choice == '5':
-            save_task_to_file(user_tasks)
+            task_manager.save_task_to_file()
         elif user_choice == '6':
-            load_tasks_from_file()
+            task_manager.load_tasks_from_file()
         else:
             print('Invalid option')
             break
