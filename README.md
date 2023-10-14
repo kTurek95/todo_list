@@ -7,14 +7,15 @@ This To-Do List application allows users to manage their tasks. You can add, dis
 The project consists of three modules:
 
 - `main.py`: The main module that handles user interaction.
-- `function.py`: The function module containing functions for adding, displaying, removing, marking as completed, saving, and loading tasks.
-- `tests.py`: The tests module containing tests for function module.
+- `task_manager.py`: The function module containing functions for adding, displaying, removing, marking as completed, saving, and loading tasks.
+- `task_manager_tests.py`: The tests module containing tests for function module.
+- `excpetion.py`
 
 ## Prerequisites
 To run this application, you need to have Python installed on your computer.
 
 ## Installation
-1. Download the source code from the repository.
+1. Download the source code from the repository or clone to your Python ide.
 
 2. Open a terminal and navigate to the project directory.
 
@@ -35,6 +36,7 @@ To run this application, you need to have Python installed on your computer.
 - To mark a task as completed, select option "4" and provide the task to be marked.
 - To save tasks to a file, choose option "5."
 - To load tasks from a file, select option "6."
+- Press any key to exit.
 
 ## Configuration
 No additional configuration is required to run the application.
